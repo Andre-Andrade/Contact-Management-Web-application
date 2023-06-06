@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
     <div class="container mt-4">
 
@@ -8,9 +8,11 @@
                     <h2>Contatos</h2>
                 </div>
                 <div class="card-body">
+                   @auth
                     <a href="{{ route('contatos.create') }}" class="btn btn-success text-center" title="Adiciona novo contato">
                         <i class="fas fa-plus-circle"></i> Novo contato
                     </a>
+                  @endauth      
                     <div class="table-responsive">
                         @if (count($contatos) > 0)
                             @if (session('message'))
@@ -29,8 +31,10 @@
                                         <th>Nome</th>
                                         <th>Email</th>
                                         <th>Contato</th>
-                                       
+                                      @auth   
                                         <th></th>
+                                       @endauth      
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,12 +44,13 @@
                                             <td>{{ $contato->nome }}</td>
                                             <td>{{ $contato->email }}</td>
                                             <td>{{ $contato->contato }}</td>
+                                        @auth    
                                             <td style="width:250px;">
                                                 <a href="{{ route('contatos.edit', $contato->id) }}"
                                                     title="Edit Student"><button style="height:50px;width:60px;"
                                                         class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
                                                             aria-hidden="true"></i>
-                                                        <br>Edit</button></a>
+                                                        Edit</button></a>
                                                 <form method="POST" action="{{ route('contatos.delete', $contato->id) }}"
                                                     accept-charset="UTF-8" style="display:inline">
                                                     {{ method_field('DELETE') }}
@@ -57,6 +62,7 @@
                                                         Delete</button>
                                                 </form>
                                             </td>
+                                        @endauth    
                                         </tr>
                                     @endforeach
                                 </tbody>

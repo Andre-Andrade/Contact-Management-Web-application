@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
     <div class="container">
         <div class="card my-5">
@@ -63,14 +63,15 @@
                                 @enderror
                             </div>
                              </form>
+                             <p></p>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-warning"><i class="fas fa-wrench"></i>
-                                    Edita</button>&nbsp;<form method="POST" action="{{ route('contatos.delete', $contatos->id) }}"
+                                    Edit</button>&nbsp;<form method="POST" action="{{ route('contatos.delete', $contatos->id) }}"
                                                     accept-charset="UTF-8" style="display:inline">
                                                     {{ method_field('DELETE') }}
                                                     @csrf
-                                                    <button style="height:50px;width:60px;" type="submit"
-                                                        class="btn btn-danger btn-sm" title="Delete "
+                                                    <button style="" type="submit"
+                                                        class="btn btn-danger " title="Delete"
                                                         onclick="return confirm(&quot;Confirma delete?&quot;)"><i
                                                             class="fa fa-trash-o" aria-hidden="true"></i>
                                                         Delete</button>
