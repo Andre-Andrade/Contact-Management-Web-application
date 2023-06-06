@@ -8,9 +8,11 @@
                     <h2>Contatos</h2>
                 </div>
                 <div class="card-body">
+                   <?php if(auth()->guard()->check()): ?>
                     <a href="<?php echo e(route('contatos.create')); ?>" class="btn btn-success text-center" title="Adiciona novo contato">
                         <i class="fas fa-plus-circle"></i> Novo contato
                     </a>
+                  <?php endif; ?>      
                     <div class="table-responsive">
                         <?php if(count($contatos) > 0): ?>
                             <?php if(session('message')): ?>
@@ -29,8 +31,10 @@
                                         <th>Nome</th>
                                         <th>Email</th>
                                         <th>Contato</th>
-                                       
+                                      <?php if(auth()->guard()->check()): ?>   
                                         <th></th>
+                                       <?php endif; ?>      
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,12 +44,13 @@
                                             <td><?php echo e($contato->nome); ?></td>
                                             <td><?php echo e($contato->email); ?></td>
                                             <td><?php echo e($contato->contato); ?></td>
+                                        <?php if(auth()->guard()->check()): ?>    
                                             <td style="width:250px;">
                                                 <a href="<?php echo e(route('contatos.edit', $contato->id)); ?>"
                                                     title="Edit Student"><button style="height:50px;width:60px;"
                                                         class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
                                                             aria-hidden="true"></i>
-                                                        <br>Edit</button></a>
+                                                        Edit</button></a>
                                                 <form method="POST" action="<?php echo e(route('contatos.delete', $contato->id)); ?>"
                                                     accept-charset="UTF-8" style="display:inline">
                                                     <?php echo e(method_field('DELETE')); ?>
@@ -58,6 +63,7 @@
                                                         Delete</button>
                                                 </form>
                                             </td>
+                                        <?php endif; ?>    
                                         </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
@@ -74,4 +80,4 @@
 
     </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/contatos/contato.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/contatos/contato.blade.php ENDPATH**/ ?>

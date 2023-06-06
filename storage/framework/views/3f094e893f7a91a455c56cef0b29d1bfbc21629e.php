@@ -105,6 +105,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
                              </form>
+                             <p></p>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-warning"><i class="fas fa-wrench"></i>
                                     Edita</button>&nbsp;<form method="POST" action="<?php echo e(route('contatos.delete', $contatos->id)); ?>"
@@ -112,8 +113,8 @@ unset($__errorArgs, $__bag); ?>
                                                     <?php echo e(method_field('DELETE')); ?>
 
                                                     <?php echo csrf_field(); ?>
-                                                    <button style="height:50px;width:60px;" type="submit"
-                                                        class="btn btn-danger btn-sm" title="Delete "
+                                                    <button style="" type="submit"
+                                                        class="btn btn-danger " title="Delete"
                                                         onclick="return confirm(&quot;Confirma delete?&quot;)"><i
                                                             class="fa fa-trash-o" aria-hidden="true"></i>
                                                         Delete</button>
@@ -128,4 +129,4 @@ unset($__errorArgs, $__bag); ?>
     </div>
     
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/contatos/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/resources/views/contatos/edit.blade.php ENDPATH**/ ?>

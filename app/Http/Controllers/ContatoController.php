@@ -11,7 +11,7 @@ class ContatoController extends Controller
     public function index()
     {
         
-        return view('contatos.index');
+        return view('home');
     }
 
     public function indexcontatos()
