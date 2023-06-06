@@ -52,7 +52,7 @@ class ContatoController extends Controller
 
         $contato->save();
 
-        return redirect()->route('contatos')->with('message', 'Contato Successfully Added!');
+        return redirect()->route('contatos')->with('message', 'Contato inserido com sucesso!');
     }
 
   
@@ -67,15 +67,15 @@ class ContatoController extends Controller
     {
         $request->validate([
             'nome' => 'required|min:5',
-            'email' => 'required|email|unique:contato',
-            'contato' => 'required|digits:9|unique:contato'
+            'email' => 'required|email|unique:contato,email,'.$id,
+            'contato' => 'required|digits:9|unique:contato,contato,'.$id, 
             
         ]);
 
         $contatos = Contato::find($id);
         $input = $request->all();
         $contatos->update($input);
-        return redirect('contatos')->with('updated', 'Contato Successfully Updated!');
+        return redirect('contatos')->with('updated', 'Contato editado com sucesso!');
     }
 
    
@@ -86,7 +86,7 @@ class ContatoController extends Controller
         $user = Contato::findOrFail($id);
         $user->delete();
 
-        return redirect('contatos')->with('deleted', 'Contato Deleted!');
+        return redirect('contatos')->with('deleted', 'Contato Deletado com sucesso!');
     }
 }
 
