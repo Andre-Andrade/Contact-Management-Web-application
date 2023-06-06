@@ -1,0 +1,1 @@
+Como a parte do GitHub foi vista somente no decorrer do projeto o commit inicial será o do estado atual do projeto
