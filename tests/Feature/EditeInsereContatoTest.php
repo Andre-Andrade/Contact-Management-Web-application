@@ -113,8 +113,8 @@ class EditeInsereContatoTest extends TestCase
              
         ]);
        
-        $response = $this->patch('/contatos/create/2', [
-            'nome' => 'Levi222',
+        $response = $this->put('/contatos/create/2', [
+            'nome' => 'Levi2113',
             'email' => 'levi181@gmail.com',
             'contato' => '963258747',
         ]);
@@ -131,13 +131,13 @@ class EditeInsereContatoTest extends TestCase
              
         ]);
        
-        $response = $this->patch('/contatos/create/2', [
+        $response = $this->put('/contatos/create/2', [
             'nome' => 'Levi222',
             'email' => 'marcelo@testes.com.br',
             'contato' => '963658748',
         ]);
          
-        
+        //dd($response);
         $response->assertStatus(422);
     }
     
@@ -149,7 +149,7 @@ class EditeInsereContatoTest extends TestCase
              
         ]);
        
-        $response = $this->patch('/contatos/create/2', [
+        $response = $this->put('/contatos/create/2', [
             'nome' => 'Lev',
             'email' => 'levi181@gmail.com',
             'contato' => '963258747',
@@ -166,14 +166,14 @@ class EditeInsereContatoTest extends TestCase
              
         ]);
        
-        $response = $this->patch('/contatos/create/2', [
+        $response = $this->put('/contatos/create/2', [
             'nome' => 'Levi222',
             'email' => 'levi181@gmail.com',
             'contato' => '999999993',
         ]);
          
         
-        $response->assertStatus(422);
+        $response->assertStatus(400);
     }
 
 }
