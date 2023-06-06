@@ -25,11 +25,13 @@ use App\Http\Controllers\ContatoController;
 
 Route::get('/contatos', [ContatoController::class, 'indexcontatos'])->name('contatos');
 
+Route::post('/contatos/create/store', [ContatoController::class, 'store'])->name('contatos.store');
+
 Route::middleware('auth')->group(function () {
 Route::get('/contatos/create', [ContatoController::class, 'create'])->name('contatos.create');
 
 
-Route::post('/contatos/create/store', [ContatoController::class, 'store'])->name('contatos.store');
+
 
 Route::put('/contatos/create/{id}', [ContatoController::class, 'update'])->name('contatos.update');
 

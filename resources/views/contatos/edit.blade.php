@@ -62,11 +62,13 @@
                                     <p class="alert alert-danger mt-2 p-2 error">{{ $message }}</p>
                                 @enderror
                             </div>
-                             </form>
+                             
                              <p></p>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-warning"><i class="fas fa-wrench"></i>
-                                    Edit</button>&nbsp;<form method="POST" action="{{ route('contatos.delete', $contatos->id) }}"
+                                    Edit</button>
+                            </form>
+                            <form method="POST" action="{{ route('contatos.delete', $contatos->id) }}"
                                                     accept-charset="UTF-8" style="display:inline">
                                                     {{ method_field('DELETE') }}
                                                     @csrf

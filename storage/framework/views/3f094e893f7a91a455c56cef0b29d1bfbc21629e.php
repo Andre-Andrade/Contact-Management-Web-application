@@ -104,11 +104,13 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
-                             </form>
+                             
                              <p></p>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-warning"><i class="fas fa-wrench"></i>
-                                    Edita</button>&nbsp;<form method="POST" action="<?php echo e(route('contatos.delete', $contatos->id)); ?>"
+                                    Edit</button>
+                            </form>
+                            <form method="POST" action="<?php echo e(route('contatos.delete', $contatos->id)); ?>"
                                                     accept-charset="UTF-8" style="display:inline">
                                                     <?php echo e(method_field('DELETE')); ?>
 
